@@ -5,15 +5,13 @@ import "./TinderCards.css";
 function TinderCards() {
   const [people, setPeople] = useState([]);
 
-  useEffect(()=>{
-    database.collection('people').onSnapshot(snapshot => {
-        setPeople(snapshot.docs.map(doc=>doc.data()))
-    })
-  },[people])
+  useEffect(() => {
+    database.collection("people").onSnapshot((snapshot) => {
+      setPeople(snapshot.docs.map((doc) => doc.data()));
+    });
+  }, [people]);
   return (
     <div>
-      <h1>Tinder Cards</h1>
-
       <div className="tinderCards_cardContainer">
         {people.map((person) => (
           <TinderCard
